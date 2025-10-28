@@ -11,9 +11,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const contactRoutes = require('./routes/contact');
-//const productRoutes = require('./routes/product');
+const careerRoutes = require('./routes/career');
 const popupcontactRoutes = require('./routes/popupcontact');
 const subscribeRoutes = require('./routes/subscribe');
+const rssRoutes = require('./routes/rss');
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -24,9 +25,12 @@ app.use(express.json());
 
 // ✅ 5. API Routes
 app.use('/api/contact', contactRoutes);
-//app.use('/api/products', productRoutes);
+app.use('/api/products', careerRoutes);
 app.use('/api/popupcontact', popupcontactRoutes);
 app.use('/api/subscribe', subscribeRoutes);
+app.use('/api/rss', rssRoutes);
+
+
 //app.use('/api/search', require('./routes/search'));
  
 
